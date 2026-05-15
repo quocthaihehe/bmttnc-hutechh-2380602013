@@ -1,0 +1,3 @@
+# compiled PY files
+*.pyc
+__pycache__/
