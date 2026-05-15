@@ -8,7 +8,7 @@ def dem_so_lan_xuat_hien(lst):
     return count_dict
 
 # Nhập ds từ user
-input_str = input("Nhập một danh sách số nguyên (cách nhau bởi dấu phẩy): ")
+input_str = input("Nhập một danh sách (cách nhau bởi dấu phẩy): ")
 word_list = input_str.split()
 
 # Sử dụng hàm & in ra kq
