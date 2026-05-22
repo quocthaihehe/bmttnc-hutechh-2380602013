@@ -1,17 +1,21 @@
 from SinhVien import SinhVien
 
 class QLSinhVien:
-    listSV = []
+    def __init__(self):
+        self.listSV = []
+
     def generateID(self):
+        maxID = 1 
         if (self.soLuongSV() > 0):
             maxID = self.listSV[0]._id
             for sv in self.listSV:
                 if (maxID < sv._id):
                     maxID = sv._id
-                maxID += 1
+            maxID += 1
         return maxID
+    
     def soLuongSV(self):
-        return self.listSV.__len__()
+        return len(self.listSV)
     
     def nhapSV(self):
         svID = self.generateID()
@@ -24,7 +28,7 @@ class QLSinhVien:
         self.listSV.append(sv)
 
     def updateSV(self, ID):
-        sv: SinhVien = self.findBySV(ID)
+        sv = self.findById(ID) # Sửa lỗi gọi sai tên hàm (cũ: findBySV)
         if(sv != None):
             name = input("Nhập tên sinh viên: ")
             sex = input("Nhập giới tính (Nam/Nữ): ")
@@ -43,6 +47,9 @@ class QLSinhVien:
 
     def sortByName(self):
         self.listSV.sort(key=lambda x: x._name, reverse=False)
+        
+    def sortByNganh(self):
+        self.listSV.sort(key=lambda x: x._major, reverse=False)
 
     def sortByDiemTB(self):
         self.listSV.sort(key=lambda x: x._diemTB, reverse=True)
@@ -82,12 +89,11 @@ class QLSinhVien:
             sv._hocLuc = "Yếu"
     
     def showListSV(self, listSV):
-        print("{:<8} {:<18} {:<8} {:<8} {:<8} {:<8}".format("ID", "Tên", "Giới tính", "Ngành học", "Điểm TB", "Học lực"))
-        if(listSV.__len__() > 0):
+        print("{:<8} {:<18} {:<8} {:<15} {:<8} {:<8}".format("ID", "Tên", "Giới tính", "Ngành học", "Điểm TB", "Học lực"))
+        if(len(listSV) > 0):
             for sv in listSV:
-               print("{:<8} {:<18} {:<8} {:<8} {:<8} {:<8}".format(sv._id, sv._name, sv._sex, sv._major, sv._diemTB, sv._hocLuc))
+               print("{:<8} {:<18} {:<8} {:<15} {:<8} {:<8}".format(sv._id, sv._name, sv._sex, sv._major, sv._diemTB, sv._hocLuc))
         print("\n")
 
     def getListSV(self):
         return self.listSV
-    
