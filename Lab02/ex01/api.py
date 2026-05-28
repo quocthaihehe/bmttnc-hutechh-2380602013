@@ -3,6 +3,8 @@ from cipher.caesar import CaesarCipher
 from cipher.vigenere import VigenereCipher
 from cipher.railfence import RailFenceCipher
 
+app = Flask(__name__)
+
 railfence_cipher = RailFenceCipher()
 
 @app.route('/api/railfence/encrypt', methods=['POST'])
