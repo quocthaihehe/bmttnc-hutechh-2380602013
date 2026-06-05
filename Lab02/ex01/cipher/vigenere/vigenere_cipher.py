@@ -1,5 +1,4 @@
-from ex01.cipher.caesar.alphabet import ALPHABET
-
+from ..caesar.alphabet import ALPHABET
 class VigenereCipher:
     def __init__(self):
         self.alphabet = ALPHABET
