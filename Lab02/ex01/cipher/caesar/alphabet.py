@@ -1,2 +1,2 @@
-from string import ascii_uppercase
-ALPHABET = ascii_uppercase
+import string
+ALPHABET = string.ascii_uppercase

@@ -3,6 +3,9 @@ class RailFenceCipher:
         pass
 
     def rail_fence_encrypt(self, plain_text, num_rails):
+        if not isinstance(num_rails, int) or num_rails <= 1 or num_rails >= len(plain_text):
+            raise ValueError("Số lượng đường ray không hợp lệ (phải > 1 và < chiều dài chuỗi)")
+            
         rails = [[] for _ in range(num_rails)]
         rail_index = 0
         direction = 1
@@ -21,6 +24,9 @@ class RailFenceCipher:
         return cipher_text
 
     def rail_fence_decrypt(self, cipher_text, num_rails):
+        if not isinstance(num_rails, int) or num_rails <= 1 or num_rails >= len(cipher_text):
+            raise ValueError("Invalid number of rails.")
+            
         rail_lengths = [0] * num_rails
         rail_index = 0
         direction = 1
